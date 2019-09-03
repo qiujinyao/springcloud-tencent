@@ -1,0 +1,10 @@
+#配置端口
+server:
+  port: 10086
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/qiujinyao/springcloudConfig.git
+

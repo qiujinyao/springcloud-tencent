@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.qianfeng.entity.User">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="phone" jdbcType="CHAR" property="phone"/>
+        <result column="pinyin" jdbcType="VARCHAR" property="pinyin"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="header" jdbcType="LONGVARCHAR" property="header"/>
+        <result column="header_crm" jdbcType="LONGVARCHAR" property="headerCrm"/>
+        <result column="qrcode" jdbcType="LONGVARCHAR" property="qrcode"/>
+    </resultMap>
+    <select id="selectUserByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from user where user_name like concat("%",#{username},"%");
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: eureka-user
+  #配置配置文件中心服务器地址
+  cloud:
+    config:
+      uri: http://localhost:10086
+      name: application
+      profile: default,user,jdbc
+      label: master

@@ -1,0 +1,12 @@
+##配置配置文件中心服务器地址
+spring:
+  cloud:
+    config:
+      uri: http://localhost:10086
+      name: application
+      profile: upload
+      label: master
+  servlet:
+    multipart:
+      max-request-size: -1
+      max-file-size: -1

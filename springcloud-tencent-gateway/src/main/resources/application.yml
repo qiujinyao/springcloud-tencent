@@ -1,0 +1,26 @@
+server:
+  port: 18888
+spring:
+  application:
+    name: tencent-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: gateway-server
+          uri: lb://eureka-user
+          predicates:
+            - Path=/user/**
+
+        - id: gateway-server
+          uri: lb://eureka-upload
+          predicates:
+            - Path=/fileupload/**
+
+        - id: gateway-server
+          uri: lb://eureka-friend
+          predicates:
+            - Path=/friend/**,/friends/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
